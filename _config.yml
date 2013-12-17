@@ -54,11 +54,7 @@ follow:
 customLinks:
   - item:
     - text: 芦苇丛的鹅蛋
-      url: http://www.flau.me
-    - text: Jekyll
-      url: http://jekyllrb.com
-    - text: Jekyll Theme
-      url: http://www.zhanxin.info/themes.html
+      url: http://flau.me
     message: Friends
   - item:
     - text: Font Awesome
@@ -72,7 +68,8 @@ customLinks:
 #googleAnaly, your id link UA-12345678-X
 googleAnaly:
   config: true
-  id: UA-40169250-1
+  url: gayuus.com
+  id: UA-46524889-1
 
 #comment config
 disqus:

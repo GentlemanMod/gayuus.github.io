@@ -9,7 +9,7 @@ CONFIG = {
   'themes' => File.join(SOURCE, "_includes", "themes"),
   'layouts' => File.join(SOURCE, "_layouts"),
   'posts' => File.join(SOURCE, "_posts"),
-  'post_ext' => "md",
+  'post_ext' => "markdown",
   'theme_package_version' => "0.1.0"
 }
 
@@ -63,12 +63,11 @@ task :post do
   open(filename, 'w') do |post|
     post.puts "---"
     post.puts "layout: post"
-    post.puts "title: \"#{title.gsub(/-/,' ')}\""
-    post.puts 'description: ""'
+    post.puts "title:  #{title.gsub(/-/,' ')}"
+    post.puts "date:   #{Time.now.strftime("%Y-%m-%d %H:%M:%S")}"
     post.puts "category: \"#{category.gsub(/-/,' ')}\""
-    post.puts "tags: #{tags}"
     post.puts "---"
-    post.puts "{% include JB/setup %}"
+    post.puts ""
   end
 end # task :post
 
@@ -77,7 +76,7 @@ end # task :post
 # If you don't specify a file extention we create an index.html at the path specified
 desc "Create a new page."
 task :page do
-  name = ENV["name"] || "new-page.md"
+  name = ENV["name"] || "new-page.markdown"
   filename = File.join(SOURCE, "#{name}")
   filename = File.join(filename, "index.html") if File.extname(filename) == ""
   title = File.basename(filename, File.extname(filename)).gsub(/[\W\_]/, " ").gsub(/\b\w/){$&.upcase}
@@ -89,11 +88,12 @@ task :page do
   puts "Creating new page: #{filename}"
   open(filename, 'w') do |post|
     post.puts "---"
-    post.puts "layout: page"
+    post.puts "layout: default"
     post.puts "title: \"#{title}\""
-    post.puts 'description: ""'
+    post.puts "keywords: "
+    post.puts "comment: true"
     post.puts "---"
-    post.puts "{% include JB/setup %}"
+    post.puts ""
   end
 end # task :page
 
