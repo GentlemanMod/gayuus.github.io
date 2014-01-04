@@ -2,7 +2,7 @@
 layout: post
 title:  linux上安装windows系统
 date:   2014-01-04 14:08:42
-category: ""
+category: "windows"
 ---
 <h2 id="tagline">Linux使用ms-sys引导U盘安装windows</h2>
 
